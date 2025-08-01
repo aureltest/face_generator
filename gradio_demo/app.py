@@ -50,8 +50,9 @@ pipeline.scheduler = DPMSolverMultistepScheduler.from_config(pipeline.scheduler.
 pipeline = pipeline.to(device)
 
 # load and disable LCM
-pipeline.load_lora_weights("latent-consistency/lcm-lora-sdv1-5")
-pipeline.disable_lora()
+# Commented out for compatibility with older PEFT version
+# pipeline.load_lora_weights("latent-consistency/lcm-lora-sdv1-5")
+# pipeline.disable_lora()
 
 def toggle_lcm_ui(value):
     if value:
@@ -97,13 +98,13 @@ def run_example(img_file):
     return generate_image(img_file, 25, 3, 23, 2, False)
 
 
-def generate_image(image_path, num_steps, guidance_scale, seed, num_images, use_lcm, progress=gr.Progress(track_tqdm=True)):
+def generate_image(image_path, num_steps, guidance_scale, seed, num_images, use_lcm):
 
     if use_lcm:
         pipeline.scheduler = LCMScheduler.from_config(pipeline.scheduler.config)
-        pipeline.enable_lora()
+        # pipeline.enable_lora()  # Commented out for compatibility
     else:
-        pipeline.disable_lora()
+        # pipeline.disable_lora()  # Commented out for compatibility
         pipeline.scheduler = DPMSolverMultistepScheduler.from_config(pipeline.scheduler.config)
 
     if image_path is None:
@@ -248,4 +249,5 @@ with gr.Blocks(css=css) as demo:
     
     gr.Markdown(Footer)
 
+demo.queue()  # Enable queue for progress tracking
 demo.launch()
