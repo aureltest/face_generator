@@ -1,0 +1,41 @@
+{
+  "num_images_evaluated": 2,
+  "total_generations": 4,
+  "overall_mean_lpips": 0.6387445479631424,
+  "overall_std_lpips": 0.029808836777040857,
+  "overall_min_lpips": 0.6132690906524658,
+  "overall_max_lpips": 0.6877794861793518,
+  "percentiles": {
+    "25th": 0.6156157106161118,
+    "50th": 0.626964807510376,
+    "75th": 0.6500936448574066,
+    "90th": 0.6727051496505737,
+    "95th": 0.6802423179149627
+  },
+  "individual_results": [
+    {
+      "original_image": "assets/examples/freeman.jpg",
+      "num_generated": 2,
+      "lpips_scores": [
+        0.6877794861793518,
+        0.6375316977500916
+      ],
+      "mean_lpips": 0.6626555919647217,
+      "std_lpips": 0.025123894214630127,
+      "min_lpips": 0.6375316977500916,
+      "max_lpips": 0.6877794861793518
+    },
+    {
+      "original_image": "assets/examples/lily.png",
+      "num_generated": 2,
+      "lpips_scores": [
+        0.6132690906524658,
+        0.6163979172706604
+      ],
+      "mean_lpips": 0.6148335039615631,
+      "std_lpips": 0.00156441330909729,
+      "min_lpips": 0.6132690906524658,
+      "max_lpips": 0.6163979172706604
+    }
+  ]
+}
